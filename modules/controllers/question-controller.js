@@ -3,13 +3,11 @@
 
 import { ProductModel } from "../models/question-schema.js"
 
-const  getAQuestion = async(req,res)=>{
+const  showAllQuestions = async(req,res)=>{
    const data = await ProductModel.find({})
    res.send(data)
-
-
 }
 
 
 
-export {getAQuestion}
+export {showAllQuestions}

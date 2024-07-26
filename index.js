@@ -6,11 +6,14 @@ import router from "./modules/routes/question-route.js";
 const app = express();
 dotenv.config();
 
-app.use("/api/product", router);
+app.use(express.json())
+
+
+app.use("/api/question", router);
 
 app.get("/", (req, res) => {
   res.send("HELLO");
-});
+}); 
 
 
 let port = process.env.PORT || 5555;
