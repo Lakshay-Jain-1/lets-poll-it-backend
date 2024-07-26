@@ -1,0 +1,27 @@
+import express from "express";
+import dotenv from "dotenv";
+import connection from "./shared/db/connection.js";
+import router from "./modules/routes/question-route.js";
+
+const app = express();
+dotenv.config();
+
+app.use("/api/product", router);
+
+app.get("/", (req, res) => {
+  res.send("HELLO");
+});
+
+
+let port = process.env.PORT || 5555;
+
+let promise = connection;
+promise()
+  .then(() => {
+    app.listen(port, () => {
+      console.log("Server Is Connected");
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
