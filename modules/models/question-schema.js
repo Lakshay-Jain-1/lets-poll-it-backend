@@ -5,6 +5,7 @@ const questionSchema = mongoose.Schema({
   question: { type: String, required: true },
   options: { type: Array, maxLength: 4 },
   password: { type: String },
+  polled:{type: Array}
 });
 
 

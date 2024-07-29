@@ -22,4 +22,11 @@ const enterAQuestion = async (req,res)=>{
     res.json(data)
  }
 
-export {showAllQuestions, makeAQuestion ,enterAQuestion}
+ const updateAPoll = async (req,res)=>{
+   const {question , option} = req.body
+   const newPolledEntry = {optionSelected: option };
+   const data = await ProductModel.findOneAndUpdate({question},{$push:{polled:newPolledEntry}})
+   res.json({message:"You have submited your poll"})
+
+ }
+export {showAllQuestions, makeAQuestion ,enterAQuestion ,updateAPoll}
