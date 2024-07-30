@@ -8,7 +8,7 @@ dotenv.config();
 
 app.use(express.json());
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://your-deployed-react-app.com"],
+  origin: ["http://localhost:5173", "https://your-deployed-react-app.com ,http://localhost:5174"],
   optionsSuccessStatus: 200,
 };
 
