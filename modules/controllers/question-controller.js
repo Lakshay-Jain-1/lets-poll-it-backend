@@ -13,7 +13,7 @@ const getAQuestion = async (req, res) => {
   const { question } = req.body;
   const data = await ProductModel.find({ question });
 
-  res.send(data);
+  res.json(data);
 };
 
 const makeAQuestion = async (req, res) => {

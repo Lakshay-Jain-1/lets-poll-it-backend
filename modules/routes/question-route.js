@@ -7,7 +7,7 @@ const router = express.Router()
 
 
 router.get("/",showAllQuestions)
-router.get("/get",getAQuestion)
+router.post("/get",getAQuestion)
 router.post("/generate",makeAQuestion)
 
 router.post("/enter",enterAQuestion)
