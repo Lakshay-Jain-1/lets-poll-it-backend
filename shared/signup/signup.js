@@ -10,9 +10,9 @@ signupRouter.post("/", async (req, res) => {
     console.log(name,password)
     await UserModel.create({ name, password });
     let token = generateToken(name)
-    res.cookie("token",token ).cookie("success",true).json({ success: true });
+    res.cookie("token",token ,{secure:true,sameSite:"none"} ).cookie("success",true,{secure:true,sameSite:"none"}).json({ success: true });
   } catch (err) {
-    res.cookie("success",false).json({ success: false });
+    res.cookie("success",false,{secure:true,sameSite:"none"}).json({ success: false });
   }
 });
 

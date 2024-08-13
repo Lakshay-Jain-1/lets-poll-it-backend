@@ -14,14 +14,14 @@ loginRouter.post("/",async(req,res)=>{
     let user_data = await UserModel.find({name,password})
     console.log(user_data)
     if(user_data.length==0){
-      res.cookie("success",false).json({"success":false})
+      res.cookie("success",false,{secure:true,sameSite:"none"}).json({"success":false})
     }else{
     let token =  generateToken(user_data)
-      res.cookie("token",token).cookie("success",true).json({"success":true})
+      res.cookie("token",token,{secure:true,sameSite:"none"}).cookie("success",true,{secure:true,sameSite:"none"}).json({"success":true})
     }
     }catch(err){
       console.log("failed")
-          res.cookie("success",false).json({"success":false})
+          res.cookie("success",false,{secure:true,sameSite:"none"}).json({"success":false})
     }
 
 })
