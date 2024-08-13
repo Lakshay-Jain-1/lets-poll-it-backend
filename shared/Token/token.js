@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 
 
 function generateToken(string){
-    return jwt.sign(string,process.env.Pvt_Key)
+    return jwt.sign({string},process.env.Pvt_Key)
 }
 
 
