@@ -1,7 +1,5 @@
 import mongoose from "mongoose"
 
-
-
 const connection = async ()=>{
     try{
     let database = await mongoose.connect(`${process.env.Mongodb_Url}`)
