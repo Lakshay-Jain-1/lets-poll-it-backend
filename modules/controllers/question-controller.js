@@ -4,9 +4,13 @@
 import { ProductModel } from "../models/question-schema.js";
 
 const showAllQuestions = async (req, res) => {
-  const data = await ProductModel.find({});
-
-  res.send(data);
+  try {
+    const data = await ProductModel.find({}).select("-password");
+    res.send(data);
+  } catch (err) {
+    console.error("Failed to fetch questions:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
 
 const getAQuestion = async (req, res) => {
